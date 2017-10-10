@@ -19,7 +19,7 @@ DEBUG = True
 # with `python manage.py compress`
 # See https://django-compressor.readthedocs.io/en/latest/usage/#offline-compression
 # for more information
-#COMPRESS_OFFLINE = not DEBUG
+COMPRESS_OFFLINE = True
 
 # WEBROOT is the location relative to Webserver root
 # should end with a slash.
@@ -37,7 +37,7 @@ WEBROOT = '/'
 # For more information see:
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 #ALLOWED_HOSTS = ['horizon.example.com', ]
-
+ALLOWED_HOSTS = ['*']
 # Set SSL proxy settings:
 # Pass this header from the proxy after terminating the SSL,
 # and don't forget to strip it from the client's request.
@@ -69,6 +69,7 @@ WEBROOT = '/'
 #    "volume": 2,
 #    "compute": 2,
 #}
+OPENSTACK_API_VERSIONS = {"identity":3}
 
 # Set this to True if running on a multi-domain model. When this is enabled, it
 # will require the user to enter the Domain name in addition to the username
@@ -182,15 +183,24 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #    ('http://cluster2.example.com:5000/v2.0', 'cluster2'),
 #]
 
+AVAILABLE_REGIONS = [
+    ('http://127.0.0.1/identity/v3', 'crot 1'),
+    ('http://127.0.0.1/identity/v3', 'crot 2'),
+]
+
 OPENSTACK_HOST = "127.0.0.1"
-OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_HOST
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
+OPENSTACK_KEYSTONE_URL = "http://127.0.0.1/identity/v3"
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 
 # For setting the default service region on a per-endpoint basis. Note that the
 # default value for this setting is {}, and below is just an example of how it
 # should be specified.
 #DEFAULT_SERVICE_REGIONS = {
 #    OPENSTACK_KEYSTONE_URL: 'RegionOne'
+#}
+
+#DEFAULT_SERVICE_REGIONS = {
+#    OPENSTACK_KEYSTONE_URL: 'http://127.0.0.1/identity/v3'
 #}
 
 # Enables keystone web single-sign-on if set to True.
