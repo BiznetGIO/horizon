@@ -21,3 +21,6 @@ clean:
 	$(PYTHON) setup.py clean
 	rm -rf build/ MANIFEST
 	find . -name '*.pyc' -delete
+
+run:
+	uwsgi --http :8000 --wsgi-file openstack_dashboard/wsgi/horizon.wsgi
