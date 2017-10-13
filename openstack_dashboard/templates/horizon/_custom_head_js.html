@@ -40,6 +40,9 @@ if(window.location.pathname === "/auth/login/"){
 }
 
 function gio_login(region){
+  var gio_login_load = '<div class="modal loading"><div class="modal-dialog modal-xs"><div class="modal-content"><div class="modal-body"><span class="loader fa fa-spinner fa-spin fa-5x text-center"></span><div class="loader-caption h4 text-center">Change Region</div></div></div></div></div>';
+  $('body').append(gio_login_load);
+  $(".loading").modal('show');
   var gio_login = Cookies.get('gio_login');
   var payload = $('form').serialize()+"&fake_email=&fake_password=&"+gio_login+"&region="+region;
   $.ajax({
@@ -48,6 +51,7 @@ function gio_login(region){
       data: payload,
       dataType: "json"
   }).done(function(response) {
+    //console.log("done");
     console.log(response);
   }).fail(function (error) {
       console.log(error);

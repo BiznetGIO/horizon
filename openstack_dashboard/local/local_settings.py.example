@@ -154,14 +154,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_HOST_USER = 'djangomail'
 #EMAIL_HOST_PASSWORD = 'top-secret!'
 
-# For multiple regions uncomment this configuration, and add (endpoint, title).
-
 AVAILABLE_REGIONS = [
     ('https://keystone.wjv-1.neo.id:443/v3', 'prod'),
     ('https://keystone.biznetgio.net:5000/v3', 'dev'),
 ]
 
-#OPENSTACK_HOST = "keystone.biznetgio.net:5000"
 OPENSTACK_HOST = "keystone.wjv-1.neo.id:443"
 OPENSTACK_KEYSTONE_URL = "https://%s/v3" % OPENSTACK_HOST
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
