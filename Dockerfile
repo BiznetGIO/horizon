@@ -17,17 +17,16 @@ RUN \
     python-pip python-dev git gettext && \
     git clone --branch $VERSION --depth 1 https://github.com/biznetgio/horizon.git ${HORIZON_BASEDIR} && \
     cd ${HORIZON_BASEDIR} && \
+    make clean && \
+    rm -rf doc/build/ static/ .tox node_modules npm-debug.log && \
     pip install . && \
     cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py && \
     ./manage.py compilemessages && \
     ./manage.py collectstatic --noinput && \
     ./manage.py compress --force && \
     ./manage.py make_web_conf --wsgi && \
-    sed -i 's/^DEBUG.*/DEBUG = False/g' $HORIZON_BASEDIR/openstack_dashboard/local/local_settings.py && \
-    printf  "\nALLOWED_HOSTS = ['*', ]\n" >> $HORIZON_BASEDIR/openstack_dashboard/local/local_settings.py && \
     python -m compileall $HORIZON_BASEDIR
 
-VOLUME ["/var/log/apache2"]
-
+WORKDIR "/opt/horizon"
 EXPOSE 8000
-ENTRYPOINT ["/opt/horizon/manage.py","runserver"]
+ENTRYPOINT ["/opt/horizon/manage.py","runserver","0.0.0.0:8000"]
