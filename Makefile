@@ -24,3 +24,7 @@ clean:
 
 run:
 	uwsgi --http :8000 --wsgi-file openstack_dashboard/wsgi/horizon.wsgi
+
+docker:
+	docker build -t biznetgio/horizon:pike .
+	docker build -t biznetgio/horizon:latest .
