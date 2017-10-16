@@ -28,5 +28,5 @@ run:
 docker:
 	docker build -t biznetgio/horizon:pike .
 	docker build -t biznetgio/horizon:latest .
-        docker push biznetgio/horizon:pike
-        docker push biznetgio/horizon:latest
+	docker push biznetgio/horizon:pike
+	docker push biznetgio/horizon:latest
