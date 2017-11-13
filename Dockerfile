@@ -13,6 +13,7 @@ RUN \
     make clean && \
     rm -rf doc/build/ static/ .tox node_modules npm-debug.log && \
     pip install . && \
+    pip install neutron-lbaas-dashboard && \
     cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py && \
     ./manage.py compilemessages && \
     ./manage.py collectstatic --noinput && \

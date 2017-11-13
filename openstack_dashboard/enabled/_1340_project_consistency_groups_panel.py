@@ -7,3 +7,5 @@ PANEL_GROUP = 'volumes'
 
 # Python panel class of the PANEL to be added.
 ADD_PANEL = 'openstack_dashboard.dashboards.project.cgroups.panel.CGroups'
+
+DISABLED = True
