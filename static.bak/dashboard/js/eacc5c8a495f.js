@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.dashboard.identity.roles').factory('horizon.dashboard.identity.roles.role-schema',schema);schema.$inject=['horizon.framework.util.i18n.gettext'];function schema(gettext){return{type:'object',properties:{name:{title:gettext('Name'),type:'string'}},required:['name']};}})();

@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.dashboard.project.workflow',['horizon.dashboard.project.workflow.launch-instance']);})();

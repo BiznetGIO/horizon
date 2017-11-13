@@ -1,0 +1,4 @@
+(function(){'use strict';angular.module('horizon.app.core.metadata.modal').factory('horizon.app.core.metadata.modal.service',modalService);modalService.$inject=['$uibModal','horizon.app.core.basePath','horizon.app.core.metadata.service','horizon.app.core.metadata.modal.constants'];function modalService($uibModal,path,metadataService,modalConstants){var service={open:open};return service;function open(resource,id,propertiesTarget){function resolveAvailable(){return metadataService.getNamespaces(resource,propertiesTarget);}
+function resolveExisting(){return metadataService.getMetadata(resource,id);}
+function resolveParams(){return{resource:resource,id:id};}
+var resolve={available:resolveAvailable,existing:resolveExisting,params:resolveParams};var modalParams={resolve:resolve,templateUrl:path+'metadata/modal/modal.html'};return $uibModal.open(angular.extend(modalParams,modalConstants));}}})();

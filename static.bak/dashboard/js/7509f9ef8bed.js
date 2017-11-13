@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.app.core.metadata.modal',[]).constant('horizon.app.core.metadata.modal.constants',{backdrop:'static',controller:'MetadataModalController as modal',windowClass:'modal-dialog-metadata'});})();

@@ -1,0 +1,4 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.action-list').controller('horizon.framework.widgets.action-list.ActionsController',ActionsController);ActionsController.$inject=['$q','$scope'];function ActionsController($q,$scope){var ctrl=this;ctrl.disabled=false;ctrl.passThroughCallbacks={};ctrl.generateDynamicCallback=generateDynamicCallback;function generateDynamicCallback(service,index,resultHandler){var dynCallbackName="callback"+index;ctrl.passThroughCallbacks[dynCallbackName]=function genPassThroughCallback(item){if(ctrl.disabled){return undefined;}
+preAction();var result=service.perform(item,$scope.$new());$q.when(result).then(postAction,postAction);return resultHandler?resultHandler(result):result;};return'actionsCtrl.passThroughCallbacks.'+dynCallbackName;}
+function preAction(){ctrl.disabled=true;}
+function postAction(){ctrl.disabled=false;}}})();

@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/action-list/menu.html","<ul role=\"menu\" class=\"dropdown-menu dropdown-menu-right\">\n</ul>");}]);

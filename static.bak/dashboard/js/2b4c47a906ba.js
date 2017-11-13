@@ -1,0 +1,6 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.property').directive('hzField',hzField);hzField.$inject=['$filter'];function hzField($filter){var directive={restrict:'E',scope:{config:"=",item:"="},link:link};return directive;function link(scope,element){var config=scope.config;var item=scope.item;var propValue=item[config.id];var output=applyFilters(config,propValue);if(output&&output.then){output.then(postFilterFormatting);}else{postFilterFormatting(output);}
+function postFilterFormatting(output){if(config&&config.values){output=config.values[output];}
+var url;if(config&&config.urlFunction){url=config.urlFunction(item);}
+if(url){element.append(angular.element('<a>').attr('href',url).text(output));}else{element.text(output);}}}
+function applyFilters(config,propValue){var output=propValue;if(config&&config.filters){for(var i=0;i<config.filters.length;i++){var filter=config.filters[i];if(angular.isFunction(filter)){output=filter(output);}else{output=$filter(filter)(output);}}}
+return output;}}})();

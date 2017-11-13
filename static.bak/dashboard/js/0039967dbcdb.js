@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/app/core/flavors/panel.html","<hz-resource-panel resource-type-name=\"OS::Nova::Flavor\">\n  <hz-resource-table resource-type-name=\"OS::Nova::Flavor\"></hz-resource-table>\n</hz-resource-panel>\n");}]);

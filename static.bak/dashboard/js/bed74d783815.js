@@ -1,0 +1,3 @@
+(function(){'use strict';angular.module('horizon.framework.util.validators').directive('validateNumberMin',validateNumberMin);function validateNumberMin(){var directive={require:'ngModel',restrict:'A',link:link};return directive;function link(scope,element,attrs,ctrl){if(!ctrl){return;}
+ctrl.$parsers.push(minValidator);ctrl.$formatters.push(minValidator);attrs.$observe('validateNumberMin',function(){minValidator(ctrl.$modelValue);});function minValidator(value){var min=scope.$eval(attrs.validateNumberMin);if(angular.isDefined(min)&&!ctrl.$isEmpty(value)&&value<min){ctrl.$setValidity('validateNumberMin',false);}else{ctrl.$setValidity('validateNumberMin',true);}
+return value;}}}})();

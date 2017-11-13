@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/app/core/keypairs/details/drawer.html","<hz-resource-property-list\n  resource-type-name=\"OS::Nova::Keypair\"\n  item=\"item\"\n  property-groups=\"[[\'fingerprint\', \'public_key\']]\">\n</hz-resource-property-list>");}]);

@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/form/fields/section.html","<div class=\"hz-section {$::form.htmlClass$}\"></div>\n");}]);

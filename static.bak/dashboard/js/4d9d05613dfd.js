@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.dashboard.identity.projects',[]).config(config);config.$inject=['$provide','$windowProvider'];function config($provide,$windowProvider){var path=$windowProvider.$get().STATIC_URL+'dashboard/identity/projects/';$provide.constant('horizon.dashboard.identity.projects.basePath',path);}})();

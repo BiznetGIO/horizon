@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module("horizon.framework.widgets.headers").directive('hzPageHeader',hzPageHeader);hzPageHeader.$inject=['horizon.framework.widgets.headers.basePath'];function hzPageHeader(basePath){var directive={restrict:'E',scope:{header:'@',description:'@'},templateUrl:basePath+'hz-page-header.html',transclude:true};return directive;}})();

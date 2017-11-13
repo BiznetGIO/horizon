@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.modal-wait-spinner').directive('waitSpinner',waitSpinner);waitSpinner.$inject=['horizon.framework.widgets.basePath'];function waitSpinner(basePath){var directive={scope:{text:'@text'},templateUrl:basePath+'modal-wait-spinner/modal-wait-spinner.template.html',restrict:'A'};return directive;}})();

@@ -1,0 +1,3 @@
+horizon.ajax={_queue:[],_active:[],get_messages:function(request){return request.getResponseHeader("X-Horizon-Messages");},queue:function(opts){var def=$.Deferred();horizon.ajax._queue.push({opts:opts,deferred:def});horizon.ajax.next();return def.promise();},next:function(){var queue=horizon.ajax._queue;var limit=horizon.conf.ajax.queue_limit;function process_queue(request){return function(){var active=horizon.ajax._active;var index=$.inArray(request,active);if(index>-1){active.splice(index,1);}
+horizon.ajax.next();};}
+if(queue.length&&(!limit||horizon.ajax._active.length<limit)){var item=queue.shift();var request=$.ajax(item.opts);horizon.ajax._active.push(request);request.always(process_queue(request));request.then(item.deferred.resolve,item.deferred.reject);}}};

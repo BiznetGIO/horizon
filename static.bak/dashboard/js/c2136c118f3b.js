@@ -1,0 +1,8 @@
+(function(){"use strict";angular.module('horizon.dashboard.identity.users').factory('horizon.dashboard.identity.users.service',userService);userService.$inject=['$q','horizon.app.core.openstack-service-api.keystone','horizon.app.core.detailRoute','horizon.app.core.openstack-service-api.settings'];function userService($q,keystone,detailRoute,settings){return{getDetailsPath:getDetailsPath,getUserPromise:getUserPromise,getUsersPromise:getUsersPromise,getFilterFirstSettingPromise:getFilterFirstSettingPromise};function getDetailsPath(item){return detailRoute+'OS::Keystone::User/'+item.id;}
+function getUsersPromise(params){return keystone.getUsers(params);}
+function getUserPromise(identifier){return $q.all([keystone.getVersion(),keystone.getUser(identifier)]).then(getUserDetails);}
+function getUserDetails(response){var version=response[0].data.version;var user=response[1];if(user.data.default_project_id){keystone.getProject(user.data.default_project_id).then(addProjectName);}
+if(version&&version>=3){return keystone.getDomain(user.data.domain_id).then(modifyResponse);}else{return user;}
+function addProjectName(project){user.data.project_name=project.data.name;return user;}
+function modifyResponse(domain){user.data.domain_name=domain.data.name;return user;}}
+function getFilterFirstSettingPromise(){return settings.getSetting('FILTER_DATA_FIRST',{'identity.users':false}).then(resolve);function resolve(result){return result['identity.users'];}}}})();

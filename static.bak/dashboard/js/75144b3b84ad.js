@@ -1,0 +1,6 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.metadata.tree').controller('MetadataTreeController',MetadataTreeController);MetadataTreeController.$inject=['horizon.framework.widgets.metadata.tree.service','horizon.framework.widgets.metadata.tree.defaults'];function MetadataTreeController(metadataTreeService,defaults){var ctrl=this;ctrl.availableFilter=availableFilter;ctrl.quickFilter=quickFilter;ctrl.checkNameUnique=checkNameUnique;ctrl.text=angular.extend({},defaults.text,ctrl.text);if(!ctrl.tree){ctrl.tree=new metadataTreeService.Tree(ctrl.available,ctrl.existing);}
+ctrl.customItem='';ctrl.filterText={available:'',existing:''};function availableFilter(item){return!item.added&&item.visible;}
+function quickFilter(item){var text=ctrl.filterText.available;if(!text){return true;}
+if(item.children.length>0){return item.children.filter(quickFilter).length>0;}
+return item.label.indexOf(text)>-1||item.leaf.name.indexOf(text)>-1;}
+function checkNameUnique(name){return!ctrl.tree.flatTree.some(function(item){return item.leaf&&item.leaf.name===name;});}}})();

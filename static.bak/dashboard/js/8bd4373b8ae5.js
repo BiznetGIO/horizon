@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.framework.conf',[]).value('horizon.framework.conf.toastOptions',{'delay':3000,'dimissible':['alert-success','alert-info']});})();

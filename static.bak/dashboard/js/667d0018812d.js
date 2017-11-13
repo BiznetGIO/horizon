@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.app.core.metadata',['horizon.app.core.metadata.modal']);})();

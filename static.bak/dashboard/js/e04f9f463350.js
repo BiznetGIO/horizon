@@ -1,0 +1,2 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.action-list').directive('action',action);action.$inject=['horizon.framework.widgets.basePath'];function action(path){var directive={link:link,restrict:'E',scope:{actionClasses:'=?',callback:'=?',disabled:'=?',item:'=?'},templateUrl:templateUrl,transclude:true};return directive;function link(scope,element){element.children().first().unwrap();}
+function templateUrl(element,attrs){var buttonType=attrs.buttonType||'action';return path+'action-list/'+buttonType+'.html';}}})();

@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/dashboard/project/containers/select-container.html","<div>\n  <div class=\"well text-center h4 hz-object-empty\">\n    <span class=\"fa fa-info-circle\"></span>\n    <span translate>Select a container to browse.</span>\n  </div>\n</div>\n");}]);

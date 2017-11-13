@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/dashboard/identity/users/panel.html","<hz-resource-panel resource-type-name=\"OS::Keystone::User\">\n  <hz-resource-table resource-type-name=\"OS::Keystone::User\">\n  </hz-resource-table>\n</hz-resource-panel>\n");}]);

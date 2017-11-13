@@ -1,0 +1,3 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.form').controller('horizon.framework.widgets.form.ModalFormController',controller);controller.$inject=['$uibModalInstance','context'];function controller($uibModalInstance,context){var ctrl=this;ctrl.formTitle=context.schema.title||context.title;ctrl.form=context.form;ctrl.schema=context.schema;ctrl.model=context.model;ctrl.submit=submit;ctrl.submitText=context.submitText;ctrl.submitIcon=context.submitIcon;ctrl.cancel=cancel;function submit(){return $uibModalInstance.close(context);}
+function cancel(){return $uibModalInstance.dismiss(context);}
+return ctrl;}})();

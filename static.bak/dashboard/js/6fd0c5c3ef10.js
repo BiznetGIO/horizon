@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/action-list/actions-delete-selected.template.html","<action action-classes=\"\'btn btn-danger\'\"\n        disabled=\"tCtrl.selected.length === 0\"\n        item=\"tCtrl.selected\">\n  <span class=\"fa fa-trash\"></span>\n  $text$\n</action>\n");}]);

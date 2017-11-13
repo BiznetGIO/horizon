@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/app/core/trunks/panel.html","<hz-resource-panel resource-type-name=\"OS::Neutron::Trunk\">\n  <hz-resource-table resource-type-name=\"OS::Neutron::Trunk\"></hz-resource-table>\n</hz-resource-panel>");}]);

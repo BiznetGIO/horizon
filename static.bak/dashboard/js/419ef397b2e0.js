@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/action-list/warning-tooltip.html","<p>{$ ::message $}</p>\n<div>\n  <a ng-click=\"expandDetail(); $event.stopPropagation()\">{$ ::clickMessage $}</a>\n</div>");}]);

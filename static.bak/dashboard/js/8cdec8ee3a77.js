@@ -1,0 +1,6 @@
+(function(){'use strict';angular.module('horizon.dashboard.project.workflow.launch-instance').controller('LaunchInstanceCreateKeyPairController',LaunchInstanceCreateKeyPairController);LaunchInstanceCreateKeyPairController.$inject=['$uibModalInstance','existingKeypairs','horizon.app.core.openstack-service-api.nova'];function LaunchInstanceCreateKeyPairController($uibModalInstance,existingKeypairs,nova){var ctrl=this;ctrl.submit=submit;ctrl.cancel=cancel;ctrl.doesKeypairExist=doesKeypairExist;ctrl.generate=generate;ctrl.keypair='';ctrl.keypairExistsError=gettext('Keypair already exists or name contains bad characters.');ctrl.copyPrivateKey=copyPrivateKey;function doesKeypairExist(){return exists(ctrl.keypair);}
+function generate(){nova.createKeypair({name:ctrl.keypair}).then(onKeypairCreated);function onKeypairCreated(data){ctrl.createdKeypair=data.data;ctrl.privateKey=ctrl.createdKeypair.private_key;ctrl.publicKey=ctrl.createdKeypair.public_key;}}
+function copyPrivateKey(){angular.element('textarea').select();document.execCommand('copy');}
+function exists(keypair){return existingKeypairs.indexOf(keypair)!==-1;}
+function submit(){$uibModalInstance.close(ctrl.createdKeypair);}
+function cancel(){$uibModalInstance.dismiss();}}})();

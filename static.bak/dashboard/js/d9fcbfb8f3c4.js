@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.table').directive('hzNoItems',hzNoItems);hzNoItems.$inject=['horizon.framework.widgets.basePath'];function hzNoItems(basePath){var directive={restrict:'A',require:'^hzTable',templateUrl:basePath+'table/hz-no-items.html',scope:{items:'=',message:'=?'}};return directive;}}());

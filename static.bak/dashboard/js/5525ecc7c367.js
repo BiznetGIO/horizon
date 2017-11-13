@@ -1,0 +1,1 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.action-list',[]).constant('horizon.framework.widgets.action-list.tooltipConfig',{defaultTemplate:'<div>{$ ::message $}</div>',defaultMessage:{message:gettext('The action cannot be performed. The contents of this row have errors or are missing information.')}});})();

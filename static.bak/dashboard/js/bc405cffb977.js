@@ -1,0 +1,15 @@
+(function(){'use strict';angular.module('horizon.app.core.images').factory('horizon.app.core.images.actions.delete-image.service',deleteImageService);deleteImageService.$inject=['$q','horizon.app.core.openstack-service-api.glance','horizon.app.core.openstack-service-api.policy','horizon.framework.util.actions.action-result.service','horizon.framework.util.i18n.gettext','horizon.framework.util.q.extensions','horizon.framework.widgets.modal.deleteModalService','horizon.framework.widgets.toast.service','horizon.app.core.images.resourceType'];function deleteImageService($q,glance,policy,actionResultService,gettext,$qExtensions,deleteModal,toast,imagesResourceType){var scope,context,deleteImagePromise;var notAllowedMessage=gettext("You are not allowed to delete images: %s");var service={initScope:initScope,allowed:allowed,perform:perform};return service;function initScope(newScope){scope=newScope;context={};deleteImagePromise=policy.ifAllowed({rules:[['image','delete_image']]});}
+function perform(items){var images=angular.isArray(items)?items:[items];context.labels=labelize(images.length);context.deleteEntity=deleteImage;return $qExtensions.allSettled(images.map(checkPermission)).then(afterCheck);}
+function allowed(image){if(image){return $q.all([notProtected(image),deleteImagePromise,policy.ifAllowed({rules:[['image','delete_image']]}),notDeleted(image)]);}else{return policy.ifAllowed({rules:[['image','delete_image']]});}}
+function checkPermission(image){return{promise:allowed(image),context:image};}
+function afterCheck(result){var outcome=$q.reject();if(result.fail.length>0){toast.add('error',getMessage(notAllowedMessage,result.fail));outcome=$q.reject(result.fail);}
+if(result.pass.length>0){outcome=deleteModal.open(scope,result.pass.map(getEntity),context).then(createResult);}
+return outcome;}
+function createResult(deleteModalResult){var actionResult=actionResultService.getActionResult();deleteModalResult.pass.forEach(function markDeleted(item){actionResult.deleted(imagesResourceType,getEntity(item).id);});deleteModalResult.fail.forEach(function markFailed(item){actionResult.failed(imagesResourceType,getEntity(item).id);});return actionResult.result;}
+function labelize(count){return{title:ngettext('Confirm Delete Image','Confirm Delete Images',count),message:ngettext('You have selected "%s". Deleted image is not recoverable.','You have selected "%s". Deleted images are not recoverable.',count),submit:ngettext('Delete Image','Delete Images',count),success:ngettext('Deleted Image: %s.','Deleted Images: %s.',count),error:ngettext('Unable to delete Image: %s.','Unable to delete Images: %s.',count)};}
+function notDeleted(image){return $qExtensions.booleanAsPromise(image.status!=='deleted');}
+function notProtected(image){return $qExtensions.booleanAsPromise(!image.protected);}
+function deleteImage(image){return glance.deleteImage(image,true);}
+function getMessage(message,entities){return interpolate(message,[entities.map(getName).join(", ")]);}
+function getName(result){return getEntity(result).name;}
+function getEntity(result){return result.context;}}})();

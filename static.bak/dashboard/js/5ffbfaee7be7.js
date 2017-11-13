@@ -1,0 +1,2 @@
+(function(){'use strict';angular.module('horizon.framework.widgets.contenteditable').directive('contenteditable',contenteditable);function contenteditable(){var directive={restrict:'A',require:'?ngModel',link:link};return directive;function link(scope,element,attrs,ngModel){if(!ngModel){return;}
+ngModel.$render=function(){element.html(ngModel.$viewValue||'');};element.on('blur keyup change',function(){scope.$evalAsync(read);});read();function read(){ngModel.$setViewValue(element.html());}}}})();

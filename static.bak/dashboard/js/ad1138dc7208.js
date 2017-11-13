@@ -1,0 +1,7 @@
+(function(){'use strict';angular.module('horizon.framework.util.http',['ngFileUpload']).service('horizon.framework.util.http.service',ApiService);ApiService.$inject=['$http','$window','Upload'];function ApiService($http,$window,uploadService){var httpCall=function(method,url,data,config){var backend=$http;var external=pop(config,'external');if(!external){url=$window.WEBROOT+url;url=url.replace(/\/+/g,'/');}
+if(angular.isUndefined(config)){config={};}
+config.method=method;config.url=url;if(angular.isDefined(data)){config.data=data;}
+if(uploadService.isFile(config.data)){backend=uploadService.http;}else if(angular.isObject(config.data)){for(var key in config.data){if(config.data.hasOwnProperty(key)&&uploadService.isFile(config.data[key])){backend=uploadService.upload;config.data.$$originalJSON=JSON.stringify(config.data);break;}}}
+return backend(config);};this.get=function(url,config){return httpCall('GET',url,null,config);};this.post=function(url,data,config){return httpCall('POST',url,data,config);};this.patch=function(url,data,config){return httpCall('PATCH',url,data,config);};this.put=function(url,data,config){return httpCall('PUT',url,data,config);};this.delete=function(url,data,config){return httpCall('DELETE',url,data,config);};}
+function pop(obj,key){if(!angular.isObject(obj)){return undefined;}
+var value=obj[key];delete obj[key];return value;}}());

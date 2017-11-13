@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/property/hz-resource-property.html","<dt>{$ ctrl.config.label $}</dt>\n<dd>\n  <hz-field config=\'ctrl.config\' item=\'ctrl.item\'></hz-field>\n</dd>\n\n");}]);

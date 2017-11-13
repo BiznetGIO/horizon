@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/panel/hz-resource-panel.html","<div>\n  <hz-page-header header=\"{$ ctrl.pageName $}\"></hz-page-header>\n  <ng-transclude></ng-transclude>\n</div>\n");}]);

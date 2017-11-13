@@ -1,0 +1,1 @@
+angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/dashboard/identity/domains/details/drawer.html","<hz-resource-property-list\n  resource-type-name=\"OS::Keystone::Domain\"\n  item=\"item\"\n  property-groups=\"[[\'id\', \'name\'], [\'description\', \'enabled\']]\">\n</hz-resource-property-list>\n");}]);

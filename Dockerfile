@@ -7,7 +7,7 @@ ENV HORIZON_BASEDIR=/opt/horizon \
 RUN \
   apt-get update && \
   apt-get install -y \
-    python-pip python-dev git gettext libpcre3-dev libpcre++-dev libyaml-dev python-yaml && \
+    python-pip python-dev gcc make git gettext libpcre3-dev libpcre++-dev libyaml-dev python-yaml && \
     git clone --branch $VERSION --depth 1 https://github.com/biznetgio/horizon.git ${HORIZON_BASEDIR} && \
     cd ${HORIZON_BASEDIR} && \
     make clean && \
