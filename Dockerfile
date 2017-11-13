@@ -7,13 +7,13 @@ ENV HORIZON_BASEDIR=/opt/horizon \
 RUN \
   apt-get update && \
   apt-get install -y \
-    python-pip python-dev gcc make git gettext libpcre3-dev libpcre++-dev libyaml-dev python-yaml && \
+    python-pip python-dev git gettext libpcre3-dev libpcre++-dev libyaml-dev python-yaml && \
     git clone --branch $VERSION --depth 1 https://github.com/biznetgio/horizon.git ${HORIZON_BASEDIR} && \
     cd ${HORIZON_BASEDIR} && \
     make clean && \
     rm -rf doc/build/ static/ .tox node_modules npm-debug.log && \
     pip install . && \
-    pip install neutron-lbaas-dashboard && \
+    pip install neutron-lbaas-dashboard python-memcached && \
     cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py && \
     ./manage.py compilemessages && \
     ./manage.py collectstatic --noinput && \
