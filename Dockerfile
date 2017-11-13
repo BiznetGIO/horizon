@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu
 
 ENV HORIZON_BASEDIR=/opt/horizon \
     LANG=C \
