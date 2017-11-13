@@ -157,18 +157,18 @@ SECRET_KEY = secret_key.generate_or_read_from_file(
 # We recommend you use memcached for development; otherwise after every reload
 # of the django development server, you will have to login again. To use
 # memcached set CACHES to something like
-#CACHES = {
-#    'default': {
-#        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-#        'LOCATION': '127.0.0.1:11211',
-#    },
-#}
-
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'memcached:11211',
     },
 }
+
+#CACHES = {
+#    'default': {
+#        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+#    },
+#}
 
 # Send email to the console by default
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -182,10 +182,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_HOST_PASSWORD = 'top-secret!'
 
 
-AVAILABLE_REGIONS = [
-    ('https://keystone.wjv-1.neo.id:443/v3', 'prod'),
-    ('https://keystone.biznetgio.net:5000/v3', 'dev'),
-]
+#AVAILABLE_REGIONS = [
+#    ('https://keystone.wjv-1.neo.id:443/v3', 'prod'),
+#    ('https://keystone.biznetgio.net:5000/v3', 'dev'),
+#]
 
 OPENSTACK_HOST = "keystone.wjv-1.neo.id:443"
 OPENSTACK_KEYSTONE_URL = "https://%s/v3" % OPENSTACK_HOST
