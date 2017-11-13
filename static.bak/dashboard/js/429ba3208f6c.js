@@ -1,6 +1,0 @@
-(function(){'use strict';angular.module('horizon.app.core.openstack-service-api').factory('horizon.app.core.openstack-service-api.extensions',extensions);extensions.$inject=['$q'];function extensions($q){return function(spec){return createService(spec.serviceAPI,spec.cacheFactory);};function createService(serviceAPI,cacheFactory){var service={cache:cacheFactory,get:get,ifNameEnabled:ifNameEnabled};return service;function get(){return serviceAPI.getExtensions({cache:service.cache}).then(onGetExtensions);}
-function onGetExtensions(data){return data.data.items;}
-function ifNameEnabled(desired){var deferred=$q.defer();service.get().then(onDataLoaded,onDataFailure);function onDataLoaded(extensions){if(enabled(extensions,'name',desired)){deferred.resolve();}else{deferred.reject(interpolate(gettext('Extension is not enabled: %(extension)s.'),{extension:desired},true));}}
-function onDataFailure(){deferred.reject(gettext('Cannot get the extension list.'));}
-return deferred.promise;}
-function enabled(resources,key,desired){if(resources){return resources.some(function matchResource(resource){return resource[key]===desired;});}else{return false;}}}}}());

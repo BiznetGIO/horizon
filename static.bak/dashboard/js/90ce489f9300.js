@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/headers/hz-page-header.html","<div class=\'page-header\'>\n  <h1>{$ ::header $}</h1>\n  <p>{$ ::description $}</p>\n  <ng-transclude></ng-transclude>\n</div>");}]);

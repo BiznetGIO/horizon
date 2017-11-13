@@ -1,1 +1,0 @@
-$(document).ready(function(){'use strict';var $sidenav=$('#sidebar');var $mask=$(document.createElement('div')).prop('id','sidebar-mask').appendTo($('#content_body'));$(document).on('click','#sidebar-toggle',function(){$mask.toggleClass('on-screen');$sidenav.toggleClass('on-screen');});});

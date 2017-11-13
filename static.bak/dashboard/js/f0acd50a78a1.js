@@ -1,8 +1,0 @@
-(function(){"use strict";angular.module('horizon.dashboard.identity.domains').factory('horizon.dashboard.identity.domains.service',domainService);domainService.$inject=['$q','horizon.app.core.openstack-service-api.keystone','horizon.app.core.openstack-service-api.policy','horizon.app.core.openstack-service-api.settings','horizon.app.core.detailRoute'];function domainService($q,keystone,policy,settingsService,detailRoute){return{getDetailsPath:getDetailsPath,getDomainPromise:getDomainPromise,listDomains:listDomains};function getDetailsPath(item){return detailRoute+'OS::Keystone::Domain/'+item.id;}
-function listDomains(){var defaultDomain=null;var KEYSTONE_DEFAULT_DOMAIN=null;return $q.all([keystone.getDomain('default'),settingsService.getSetting('OPENSTACK_KEYSTONE_DEFAULT_DOMAIN')]).then(allowed);function allowed(results){defaultDomain=results[0].data;KEYSTONE_DEFAULT_DOMAIN=results[1];var rules=[['identity','identity:list_domains']];return policy.ifAllowed({rules:rules}).then(policySuccess,policyFailed);}
-function policySuccess(){if(isDefaultDomain()){return keystone.getDomains().then(getDomainSuccess);}else{return keystone.getDomain(defaultDomain.id).then(getDomainSuccess);}}
-function policyFailed(){return keystone.getDomain(defaultDomain.id).then(getDomainSuccess);}
-function getDomainSuccess(response){if(!angular.isArray(response.data.items)){response.data.items=[response.data];}
-return{data:{items:response.data.items.map(modifyDomain)}};function modifyDomain(domain){domain.trackBy=domain.id;return domain;}}
-function isDefaultDomain(){return defaultDomain.name===KEYSTONE_DEFAULT_DOMAIN;}}
-function getDomainPromise(identifier){return keystone.getDomain(identifier);}}})();

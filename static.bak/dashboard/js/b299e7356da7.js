@@ -1,2 +1,0 @@
-(function(){'use strict';angular.module('horizon.app.tech-debt').controller('ImageFormController',ImageFormController);function ImageFormController(){var ctrl=this;ctrl.copyFrom=angular.element('#id_image_url').val();ctrl.diskFormat=angular.element('#id_disk_format option:selected').val();ctrl.selectImageFormat=function(path){if(!path){return;}
-var format=path.substr(path.lastIndexOf(".")+1).toLowerCase().replace(/[^a-z0-9]+/gi,"");if($('#id_disk_format').find('[value='+format+']').length!==0){ctrl.diskFormat=format;}else{ctrl.diskFormat="";}};}})();

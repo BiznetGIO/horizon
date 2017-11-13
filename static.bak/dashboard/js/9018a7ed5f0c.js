@@ -1,2 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.util.i18n',[]).factory('horizon.framework.util.i18n.gettext',getText).factory('horizon.framework.util.i18n.ngettext',nGetText);getText.$inject=['$window'];function getText($window){var gettextFunc=$window.gettext||function(x){return x;};return function(){return gettextFunc.apply(this,arguments);};}
-nGetText.$inject=['$window'];function nGetText($window){var nGettextFunc=$window.ngettext||function(x){return x;};return function(){return nGettextFunc.apply(this,arguments);};}})();

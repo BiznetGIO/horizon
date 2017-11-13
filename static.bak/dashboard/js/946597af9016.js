@@ -1,4 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.widgets.table').directive('hzSearchBar',hzSearchBar);hzSearchBar.$inject=['horizon.framework.widgets.table.filterPlaceholderText','horizon.framework.widgets.basePath'];function hzSearchBar(FILTER_PLACEHOLDER_TEXT,basePath){var directive={restrict:'E',templateUrl:basePath+'table/search-bar.html',transclude:true,link:link};return directive;function link(scope,element,attrs,ctrl,transclude){if(angular.isDefined(attrs.groupClasses)){element.find('.input-group').addClass(attrs.groupClasses);}
-if(angular.isDefined(attrs.iconClasses)){element.find('.fa').addClass(attrs.iconClasses);}
-var searchInput=element.find('[st-search]');if(angular.isDefined(attrs.inputClasses)){searchInput.addClass(attrs.inputClasses);}
-var placeholderText=attrs.placeholder||FILTER_PLACEHOLDER_TEXT;searchInput.attr('placeholder',placeholderText);transclude(scope,function(clone){element.find('.input-group').append(clone);});}}}());

@@ -1,2 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.util.filters').factory('horizon.framework.util.filters.$memoize',$memoize);function $memoize(){return function(func,hasher){var memoize=function(key){var cache=memoize.cache;var address=''+(hasher?hasher.apply(this,arguments):key);if(!cache.hasOwnProperty(address)){cache[address]=func.apply(this,arguments);}
-return cache[address];};memoize.cache={};return memoize;};}}());

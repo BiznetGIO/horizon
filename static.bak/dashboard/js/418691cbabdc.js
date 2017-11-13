@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/action-list/actions.row.mock.html","<actions allowed=\"actions\" type=\"row\" item=\"rowItem\">\n</actions>\n");}]);

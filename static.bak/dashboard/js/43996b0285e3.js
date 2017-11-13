@@ -1,1 +1,0 @@
-(function(){'use strict';angular.module('horizon.auth.login').controller('hzLoginController',function(){var ctrl=this;ctrl.auth_type='credentials';});})();

@@ -1,2 +1,0 @@
-var Horizon=function(){var horizon={},initFunctions=[];horizon.addInitFunction=function(fn){initFunctions.push(fn);};horizon.init=function(){for(var i=0;i<initFunctions.length;i+=1){initFunctions[i]();}
-initFunctions=[];};horizon.conf={};horizon.languageCode='en';return horizon;};var horizon=new Horizon();

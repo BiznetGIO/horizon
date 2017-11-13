@@ -1,3 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.widgets.table').directive('hzCell',hzCell);hzCell.$inject=['$compile'];function hzCell($compile){var directive={restrict:'E',scope:{table:'=',column:'=',item:'='},link:link};return directive;function link(scope,element){var column=scope.column;var html;var progressBarHtml='';if(column&&column.template){html=$compile(column.template)(scope);}else{if(column.itemInTransitionFunction&&column.itemInTransitionFunction(scope.item)){progressBarHtml='<div class="progress-text horizon-loading-bar">'+'<div class="progress progress-striped active">'+'<div class="progress-bar"></div>'+'</div>'+'</div>';}
-html=$compile(progressBarHtml+'<hz-field config="column" item="item"></hz-field>')(scope);}
-element.append(html);}}})();

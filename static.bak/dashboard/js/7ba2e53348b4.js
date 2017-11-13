@@ -1,1 +1,0 @@
-(function(){'use strict';angular.module('horizon.app.core.cloud-services').directive('hzIfPolicies',hzIfPolicies);hzIfPolicies.$inject=['hzPromiseToggleTemplateDirective','horizon.app.core.openstack-service-api.policy'];function hzIfPolicies(hzPromiseToggle,policy){return angular.extend(hzPromiseToggle[0],{singlePromiseResolver:policy.ifAllowed,name:'hzIfPolicies'});}})();

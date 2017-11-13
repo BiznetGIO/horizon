@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/app/core/network_qos/panel.html","<hz-resource-panel resource-type-name=\"OS::Neutron::QoSPolicy\">\n  <hz-resource-table resource-type-name=\"OS::Neutron::QoSPolicy\"></hz-resource-table>\n</hz-resource-panel>\n");}]);

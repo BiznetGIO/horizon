@@ -1,1 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.widgets.headers',[]).config(config);config.$inject=['$provide','$windowProvider'];function config($provide,$windowProvider){var path=$windowProvider.$get().STATIC_URL+'framework/widgets/headers/';$provide.constant('horizon.framework.widgets.headers.basePath',path);}})();

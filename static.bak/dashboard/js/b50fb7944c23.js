@@ -1,2 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.widgets.modal').controller('WizardModalController',WizardModalController);WizardModalController.$inject=['$uibModalInstance','$scope','workflow','submit','data'];function WizardModalController($uibModalInstance,$scope,workflow,submit,data){$scope.close=close;$scope.cancel=cancel;$scope.submit=submit;$scope.workflow=workflow;angular.forEach(data,function copy(value,key){$scope[key]=value;});function close(args){$uibModalInstance.close(args);}
-function cancel(){$uibModalInstance.dismiss('cancel');}}})();

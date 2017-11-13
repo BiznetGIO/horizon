@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/action-list/actions-danger.template.html","<action action-classes=\"\'$action-classes$\'\" item=\"$item$\">\n  $text$\n</action>\n");}]);

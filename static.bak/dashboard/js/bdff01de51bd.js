@@ -1,7 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.util.q').factory('horizon.framework.util.q.extensions',qExtensions);qExtensions.$inject=['$q'];function qExtensions($q){var service={allSettled:allSettled,booleanAsPromise:booleanAsPromise};return service;function allSettled(promiseList){var deferred=$q.defer();var passList=[];var failList=[];var promises=promiseList.map(resolveSingle);$q.all(promises).then(onComplete);return deferred.promise;function resolveSingle(singlePromise,index){var deferredInner=$q.defer();singlePromise.promise.then(onResolve,onReject);return deferredInner.promise;function onResolve(response){passList[index]=formatResponse(response,singlePromise.context);deferredInner.resolve();}
-function onReject(response){failList[index]=formatResponse(response,singlePromise.context);deferredInner.resolve();}
-function formatResponse(response,context){return{data:response,context:context};}}
-function onComplete(){deferred.resolve({pass:condense(passList),fail:condense(failList)});}
-function condense(promiseList){return promiseList.filter(function removeEmpty(promise){return!!promise;});}}
-function booleanAsPromise(value){var deferred=$q.defer();if(value===true){deferred.resolve();}else{deferred.reject();}
-return deferred.promise;}}})();

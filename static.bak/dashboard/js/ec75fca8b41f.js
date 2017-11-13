@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/form/fields/help.html","<p class=\"hz-help {$::form.htmlClass$}\" ng-bind-html=\"form.helpvalue\"></p>\n");}]);

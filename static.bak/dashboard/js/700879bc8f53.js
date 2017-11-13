@@ -1,3 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.util.validators').directive('validateNumberMax',validateNumberMax);function validateNumberMax(){var directive={require:'ngModel',restrict:'A',link:link};return directive;function link(scope,element,attrs,ctrl){if(!ctrl){return;}
-ctrl.$parsers.push(maxValidator);ctrl.$formatters.push(maxValidator);attrs.$observe('validateNumberMax',function(){maxValidator(ctrl.$modelValue);});function maxValidator(value){var max=scope.$eval(attrs.validateNumberMax);if(angular.isDefined(max)&&!ctrl.$isEmpty(value)&&value>max){ctrl.$setValidity('validateNumberMax',false);}else{ctrl.$setValidity('validateNumberMax',true);}
-return value;}}}})();

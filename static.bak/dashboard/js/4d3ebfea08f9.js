@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/action-list/actions.custom2.mock.html","<action action-classes=\"\'btn-custom-2\'\">Custom Button 2</action>\n");}]);

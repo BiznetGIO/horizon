@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/dashboard/project/workflow/launch-instance/keypair/keypair-details.html","<dl class=\"key-pair-details\">\n  <dt translate>Public Key</dt>\n  <dd>\n    <pre><code>{$ item.public_key $}</code></pre>\n  </dd>\n</dl>\n");}]);

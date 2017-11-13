@@ -1,1 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.widgets.charts').directive('chartTooltip',chartTooltip);chartTooltip.$inject=['horizon.framework.widgets.basePath'];function chartTooltip(path){var directive={restrict:'E',scope:{tooltip:'=tooltipData'},templateUrl:path+'charts/chart-tooltip.html'};return directive;}})();

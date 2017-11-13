@@ -1,1 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.widgets.magic-search').directive('magicSearch',magicSearch);magicSearch.$inject=[];function magicSearch(){return{restrict:'E',scope:{facets_param:'@facets',filter_keys:'=filterKeys',strings:'=strings'},templateUrl:function(scope,elem){return elem.template;},controller:'MagicSearchController',controllerAs:'ctrl'};}})();

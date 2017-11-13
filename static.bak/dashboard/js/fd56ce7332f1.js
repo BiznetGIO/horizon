@@ -1,1 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.widgets.modal-wait-spinner',[]);})();

@@ -1,1 +1,0 @@
-(function(){'use strict';angular.module('horizon.framework.widgets.details').directive('hzDetails',hzDetails);hzDetails.$inject=['$window'];function hzDetails($window){var directive={restrict:'E',scope:{views:'=',context:'=',defaultTemplateUrl:'='},templateUrl:$window.STATIC_URL+'framework/widgets/details/details.html'};return directive;}})();

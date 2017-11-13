@@ -1,4 +1,0 @@
-(function(){'use strict';angular.module('horizon.app.core.images').factory('horizon.app.core.images.actions.launch-instance.service',launchInstanceService);launchInstanceService.$inject=['$q','horizon.app.core.images.non_bootable_image_types','horizon.dashboard.project.workflow.launch-instance.modal.service','horizon.framework.util.q.extensions'];function launchInstanceService($q,nonBootableImageTypes,launchInstanceModal,$qExtensions){var service={perform:perform,allowed:allowed};return service;function perform(image){return launchInstanceModal.open({'imageId':image.id});}
-function allowed(image){return $q.all([isBootable(image),isActive(image)]);}
-function isActive(image){return $qExtensions.booleanAsPromise(image.status==='active');}
-function isBootable(image){return $qExtensions.booleanAsPromise(nonBootableImageTypes.indexOf(image.container_format)<0);}}})();

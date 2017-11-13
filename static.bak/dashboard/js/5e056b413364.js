@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/dashboard/project/workflow/launch-instance/scheduler-hints/scheduler-hints.help.html","<p translate>\n  Scheduler hints allow you to pass additional placement related information to the compute scheduler.\n</p>\n");}]);

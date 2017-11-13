@@ -1,1 +1,0 @@
-(function(){'use strict';angular.module('horizon.app.tech-debt',[]);})();

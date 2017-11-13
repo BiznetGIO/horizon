@@ -1,1 +1,0 @@
-angular.module('horizon.app').run(['$templateCache',function($templateCache){$templateCache.put("/static/framework/widgets/action-list/action.html","<button tabIndex=\"0\"\n  class=\"{$ disabled ? \'disabled\' : \'\' $}\"\n  ng-class=\"actionClasses\"\n  ng-click=\"disabled || callback(item)\">\n  <ng-transclude></ng-transclude>\n</button>");}]);

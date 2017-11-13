@@ -1,6 +1,0 @@
-(function(){'use strict';var forEach=angular.forEach;angular.module('horizon.app.core.workflow').factory('horizon.app.core.workflow.decorator',dashboardWorkflowDecorator);dashboardWorkflowDecorator.$inject=['$q','horizon.app.core.openstack-service-api.serviceCatalog','horizon.app.core.openstack-service-api.policy','horizon.app.core.openstack-service-api.settings'];function dashboardWorkflowDecorator($q,serviceCatalog,policy,settings){return decorator;function decorator(spec){decorate(spec);return spec;}
-function decorate(spec){forEach(spec.steps,decorateStep);}
-function decorateStep(step){var promises=[];var types=step.requiredServiceTypes;if(types&&types.length>0){promises=promises.concat(types.map(function checkServiceEnabled(type){return serviceCatalog.ifTypeEnabled(type);}));}
-if(step.policy){promises.push(policy.ifAllowed(step.policy));}
-if(step.setting){promises.push(settings.ifEnabled(step.setting,true,true));}
-if(promises.length>0){step.checkReadiness=function(){return $q.all(promises);};}}}})();
