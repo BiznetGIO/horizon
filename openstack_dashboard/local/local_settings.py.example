@@ -8,7 +8,7 @@ from horizon.utils import secret_key
 
 from openstack_dashboard.settings import HORIZON_CONFIG
 
-DEBUG = False
+DEBUG = True
 
 # This setting controls whether or not compression is enabled. Disabling
 # compression makes Horizon considerably slower, but makes it much easier
@@ -187,7 +187,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #    ('https://keystone.biznetgio.net:5000/v3', 'dev'),
 #]
 
-OPENSTACK_HOST = "keystone.wjv-1.neo.id:443"
+#OPENSTACK_HOST = "keystone.wjv-1.neo.id:443"
+OPENSTACK_HOST = "keystone.biznetgio.net:5000"
 OPENSTACK_KEYSTONE_URL = "https://%s/v3" % OPENSTACK_HOST
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 #OPENSTACK_KEYSTONE_DEFAULT_ROLE = "user"
