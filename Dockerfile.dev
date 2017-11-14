@@ -21,7 +21,7 @@ RUN \
     cd ${HORIZON_BASEDIR} && \
     pip install . && \
     pip install python-memcached && \
-    cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py && \
+    cp openstack_dashboard/local/local_settings.py.dev openstack_dashboard/local/local_settings.py && \
     ./manage.py compilemessages && \
     ./manage.py collectstatic --noinput && \
     ./manage.py compress --force && \
