@@ -187,8 +187,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #    ('https://keystone.biznetgio.net:5000/v3', 'dev'),
 #]
 
-#OPENSTACK_HOST = "keystone.wjv-1.neo.id:443"
-OPENSTACK_HOST = "keystone.biznetgio.net:5000"
+OPENSTACK_HOST = "keystone.wjv-1.neo.id:443"
+#OPENSTACK_HOST = "keystone.biznetgio.net:5000"
 OPENSTACK_KEYSTONE_URL = "https://%s/v3" % OPENSTACK_HOST
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "Member"
 #OPENSTACK_KEYSTONE_DEFAULT_ROLE = "user"
