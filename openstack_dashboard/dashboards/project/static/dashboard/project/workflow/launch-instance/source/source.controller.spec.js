@@ -47,7 +47,6 @@
         $browser = _$browser_;
         deferred = $q.defer();
         scope.initPromise = deferred.promise;
-
         scope.model = {
           allowedBootSources: [{type: 'image', label: 'Image'}],
           newInstanceSpec: { source: [], source_type: '', create_volume_default: true },
@@ -275,7 +274,7 @@
             ctrl.updateBootSourceSelection(selSource);
 
             expect(ctrl.currentBootSource).toEqual('image');
-            expect(scope.model.newInstanceSpec.vol_create).toBe(true);
+            expect(scope.model.newInstanceSpec.vol_create).toBe(true); //neo to be false
             expect(scope.model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
           });
 
