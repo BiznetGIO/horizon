@@ -263,8 +263,7 @@
       var config = params ? {'params': params} : {};
       return apiService.get('/api/cinder/volumesnapshots/', config)
         .error(function () {
-          console.log("Unable to retrieve the volume snapshots.");
-          //toastService.add('error', gettext('Unable to retrieve the volume snapshots.'));
+          toastService.add('error', gettext('Unable to retrieve the volume snapshots.'));
         });
     }
 
@@ -350,8 +349,9 @@
     function getAbsoluteLimits() {
       return apiService.get('/api/cinder/tenantabsolutelimits/')
         .error(function () {
-          toastService.add('error',
-            gettext('Unable to retrieve the Absolute Limits.'));
+          console.log("Unable to retrieve the Absolute Limits.");
+          // toastService.add('error',
+          //   gettext('Unable to retrieve the Absolute Limits.'));
         });
     }
 
