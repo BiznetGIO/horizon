@@ -263,7 +263,8 @@
       var config = params ? {'params': params} : {};
       return apiService.get('/api/cinder/volumesnapshots/', config)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the volume snapshots.'));
+          console.log("Unable to retrieve the volume snapshots.");
+          //toastService.add('error', gettext('Unable to retrieve the volume snapshots.'));
         });
     }
 
