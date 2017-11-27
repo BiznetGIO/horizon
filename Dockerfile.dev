@@ -15,7 +15,6 @@ RUN \
     git clone https://github.com/openstack/neutron-lbaas-dashboard.git && \
     cd neutron-lbaas-dashboard && \
     pip install . && \
-    pip install oslo-log && \
     python setup.py sdist && \
     python setup.py install && \
     cp neutron_lbaas_dashboard/enabled/_1481_project_ng_loadbalancersv2_panel.py ${HORIZON_BASEDIR}/openstack_dashboard/local/enabled && \
@@ -27,7 +26,8 @@ RUN \
     ./manage.py collectstatic --noinput && \
     ./manage.py compress --force && \
     ./manage.py make_web_conf --wsgi && \
-    python -m compileall $HORIZON_BASEDIR
+    python -m compileall $HORIZON_BASEDIR && \
+    pip install oslo-log
 
 EXPOSE 8000
 ENTRYPOINT ["/opt/horizon/manage.py","runserver","0.0.0.0:8000"]
