@@ -25,8 +25,9 @@ clean:
 run:
 	uwsgi --http :8000 --wsgi-file openstack_dashboard/wsgi/horizon.wsgi
 
-docker:
-	docker build -t biznetgio/horizon:pike .
+dockerbuild:
 	docker build -t biznetgio/horizon:latest .
-	docker push biznetgio/horizon:pike
-	docker push biznetgio/horizon:latest
+
+dockerrun:
+	docker run -p 8000:8000 -it biznetgio/horizon:latest
+	@echo "http://localhost:8000"
