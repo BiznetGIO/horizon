@@ -7,4 +7,4 @@ PANEL_GROUP_NAME = _('Volumes')
 # The slug of the dashboard the PANEL_GROUP associated with. Required.
 PANEL_GROUP_DASHBOARD = 'project'
 
-DISABLED = True
+DISABLED = False
