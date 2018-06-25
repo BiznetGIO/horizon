@@ -13,7 +13,7 @@ RUN \
     make clean && \
     pip install --upgrade pip && \
     rm -rf doc/build/ static/ .tox node_modules npm-debug.log && \
-    git clone https://github.com/openstack/neutron-lbaas-dashboard.git && \
+    git clone -b stable/pike https://github.com/openstack/neutron-lbaas-dashboard.git && \
     cd neutron-lbaas-dashboard && \
     pip install . && \
     python setup.py sdist && \
