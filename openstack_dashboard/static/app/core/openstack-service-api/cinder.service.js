@@ -353,7 +353,7 @@
           // toastService.add('error',
           //   gettext('Unable to retrieve the Absolute Limits.'));
 	//toastService.add('error',gettext('Please keep in mind that when you create an instance from Horizon, billing cycle will be set to reserved/monthly. If you prefer to be charged on hourly basis, please order your instance using portal.neo.id'));
-    //   });
+       });
     }
 
     // Default Quota Sets
