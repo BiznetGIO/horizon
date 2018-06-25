@@ -9,11 +9,11 @@ WORKDIR ${HORIZON_BASEDIR}
 RUN \
   apt-get update && \
   apt-get install -y \
-    make python-pip python-dev git gettext libpcre3-dev libpcre++-dev libyaml-dev python-yaml && \
+    make python-pip python-dev git gettext libpcre3-dev libpcre++-dev libyaml-dev && \
     make clean && \
     pip install --upgrade --user pip && \
-    rm -rf doc/build/ static/ .tox node_modules npm-debug.log && \
-    git clone -b stable/pike https://github.com/openstack/neutron-lbaas-dashboard.git && \
+    rm -rf doc/build/ static/ .tox node_modules npm-debug.log
+RUN git clone -b stable/pike https://github.com/openstack/neutron-lbaas-dashboard.git && \
     cd neutron-lbaas-dashboard && \
     python -m pip install . && \
     python setup.py sdist && \
