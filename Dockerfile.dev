@@ -11,7 +11,7 @@ RUN \
   apt-get install -y \
     python-pip python-dev git gettext libpcre3-dev libpcre++-dev libyaml-dev python-yaml && \
     make clean && \
-    # pip install --upgrade pip && \
+    pip install --upgrade --user pip && \
     rm -rf doc/build/ static/ .tox node_modules npm-debug.log && \
     git clone -b stable/pike https://github.com/openstack/neutron-lbaas-dashboard.git && \
     cd neutron-lbaas-dashboard && \
