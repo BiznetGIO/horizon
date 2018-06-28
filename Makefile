@@ -28,6 +28,9 @@ run:
 dockerbuild:
 	docker build -t biznetgio/horizon:latest .
 
+dockerbuilddev:
+	docker build -f Dockerfile.dev -t biznetgio/horizon:dev .
+
 dockerrun:
 	docker run -p 8000:8000 -it biznetgio/horizon:latest
 	@echo "http://localhost:8000"

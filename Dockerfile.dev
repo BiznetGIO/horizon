@@ -20,11 +20,11 @@ RUN git clone -b stable/pike https://github.com/openstack/neutron-lbaas-dashboar
     python setup.py install && \
     cp neutron_lbaas_dashboard/enabled/_1481_project_ng_loadbalancersv2_panel.py ${HORIZON_BASEDIR}/openstack_dashboard/local/enabled && \
     cd .. && \
-    git clone https://github.com/openstack/heat-dashboard && \
-    python -m pip install -e ./heat-dashboard/ && \
-    cp heat-dashboard/heat_dashboard/enabled/* ${HORIZON_BASEDIR}/openstack_dashboard/local/enabled && \
-    cp heat-dashboard/heat_dashboard/conf/* ${HORIZON_BASEDIR}/openstack_dashboard/conf/ && \
-    cp heat-dashboard/heat_dashboard/local_settings.d/* ${HORIZON_BASEDIR}/openstack_dashboard/local/local_settings.d/ && \
+    # git clone https://github.com/openstack/heat-dashboard && \
+    # python -m pip install -e ./heat-dashboard/ && \
+    # cp heat-dashboard/heat_dashboard/enabled/* ${HORIZON_BASEDIR}/openstack_dashboard/local/enabled && \
+    # cp heat-dashboard/heat_dashboard/conf/* ${HORIZON_BASEDIR}/openstack_dashboard/conf/ && \
+    # cp heat-dashboard/heat_dashboard/local_settings.d/* ${HORIZON_BASEDIR}/openstack_dashboard/local/local_settings.d/ && \
     cd ${HORIZON_BASEDIR} && \
     python -m pip install . && \
     python -m pip install python-memcached && \
