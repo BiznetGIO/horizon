@@ -135,6 +135,7 @@ class IndexView(tables.DataTableView):
         _task_get_instances()
 
         # Loop through instances to get flavor info.
+        pre_instance = []
         for instance in instances:
             if hasattr(instance, 'image'):
                 # Instance from image returns dict
@@ -156,8 +157,13 @@ class IndexView(tables.DataTableView):
                 msg = ('Unable to retrieve flavor "%s" for instance "%s".'
                        % (flavor_id, instance.id))
                 LOG.info(msg)
+            
+            print("list : ",instance.name)
+            if instance.image_name != "Ubuntu 18.04 LTS Plesk Bundle 1.0":
+                pre_instance.append(instance)
 
-        return instances
+        # return instances
+        return pre_instance
 
 
 def swap_filter(resources, filters, fake_field, real_field):
