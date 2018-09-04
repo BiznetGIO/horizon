@@ -34,3 +34,9 @@ dockerbuilddev:
 dockerrun:
 	docker run -p 8000:8000 -it biznetgio/horizon:latest
 	@echo "http://localhost:8000"
+
+buildstatic:
+	./manage.py compilemessages
+	./manage.py collectstatic --noinput
+	./manage.py compress --force
+	python -m compileall .
