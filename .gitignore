@@ -32,11 +32,8 @@ openstack_dashboard/test/.secret_key_store
 openstack_dashboard/test/integration_tests/local-horizon.conf
 openstack_dashboard/test/integration_tests/test_reports/
 openstack_dashboard/wsgi/horizon.wsgi
-doc/build/
-/static/
 integration_tests_screenshots/
 .tox
-node_modules
 npm-debug.log
 build
 dist
