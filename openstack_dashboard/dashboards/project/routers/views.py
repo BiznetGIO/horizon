@@ -63,7 +63,13 @@ class IndexView(tables.DataTableView):
         for r in routers:
             r.name = r.name_or_id
             self._set_external_network(r, ext_net_dict)
-        return routers
+        
+        fix_routers = []
+        for router in routers:
+            if (not ("PLSK" in router.name)) and (not ("PSK" in router.name)):
+                fix_routers.append(router)
+        #return routers
+        return fix_routers
 
     def get_data(self):
         routers = self._get_routers()
