@@ -79,7 +79,12 @@ class IndexView(tables.DataTableView):
             self._more = False
             msg = _('Unable to retrieve stack list.')
             exceptions.handle(self.request, msg)
-        return stacks
+        fix_stacks = []
+        for stack in stacks:
+            if (not ("PLSK" in stack.stack_name)) and (not ("PSK" in stack.stack_name)):
+                fix_stacks.append(stack)
+        #return stacks
+        return fix_stacks
 
 
 class SelectTemplateView(forms.ModalFormView):
